@@ -1,5 +1,5 @@
 [package]
-name = "ls-effector-types"
+name = "curl-effector-types"
 version = "0.1.2"
 edition = "2021"
 publish = false
