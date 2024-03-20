@@ -16,4 +16,5 @@ Cargo.lock
 .idea
 .vscode
 **/test_artifacts/temp
+**/artifacts
 .fluence
