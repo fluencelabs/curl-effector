@@ -17,5 +17,5 @@ To build the project, you need:
 - [IPFS CLI](https://docs.ipfs.tech/install/command-line/#system-requirements) to build the cid crate
 - [Fluence CLI](https://fluence.dev/docs/build/setting-up/installing_cli) to build the effector
 
-The build.sh bash script located in the repository's root contains the commands to build the effector module and the cid crate.
-The test.sh bash script located in the repository's root contains the commands to run tests in the effector module.
+The `build.sh` bash script located in the repository's root contains the commands to build the effector module and the cid crate.
+The `test.sh` bash script located in the repository's root contains the commands to run tests in the effector module.
