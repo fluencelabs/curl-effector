@@ -3,6 +3,11 @@ name = "curl-effector-types"
 version = "0.1.1"
 edition = "2021"
 publish = true
+description = "cURL Effector Types"
+license = "Apache-2.0"
+authors = ["Fluence Labs"]
+repository = "https://github.com/fluencelabs/curl-effector"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
