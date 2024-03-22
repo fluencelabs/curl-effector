@@ -98,10 +98,20 @@ jobs:
       - name: Build archive
         run: fluence module pack ./effector --binding-crate=./imports/ --no-input -d .
 
+      - name: Extract CID
+        id: extract_cid
+        run: |
+          cid="$(tar -axf curl_effector.tar.gz module.yaml -O | grep cid | cut -d' ' -f2)"
+          echo "cid=${cid}" > $GITHUB_OUTPUT
+
       - name: Upload archive
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ needs.release-please.outputs.tag-name }}
+          append_body: true
+          body: |
+            ## Effector Wasm CID
+            **CIDv1**: `${{ steps.extract_cid.outputs.cid }}`
           files: |
             ./curl_effector.tar.gz
 
