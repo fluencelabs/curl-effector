@@ -43,24 +43,5 @@ jobs:
       - name: Run tests
         run: ./test.sh
 
-  validate:
-    name: Validate CIDs
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup fcli
-        uses: fluencelabs/setup-fluence@v1
-        with:
-          version: 0.15.28
-
-      - name: Setup IPFS CLI
-        uses: nahsi/setup-ipfs@v1
-
-      - name: Setup Rust toolchain
-        uses: dsherret/rust-toolchain-file@v1
-
       - name: Validate
         run: ./validate.sh
