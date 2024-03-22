@@ -165,7 +165,6 @@ jobs:
         run: ./build.sh
 
       - name: Publish to crates.io
-        continue-on-error: true
         run: |
           cargo ws publish \
             --no-git-commit \
