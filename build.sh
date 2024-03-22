@@ -13,6 +13,7 @@ fluence module build ./effector --no-input
 # We evalutate the CID here and not in build.rs because the second option required to put the resulting wasm file into the crate which
 # needlessly increased the size of the crate.
 echo "Evaluating CID to build the cid crate..."
+mkdir -p cid/artifacts/
 ipfs add -Q --only-hash --cid-version 1 --hash sha2-256 --chunker=size-262144 "target/wasm32-wasi/release/curl_effector.wasm" > cid/artifacts/cidv1
 echo "Resulting CID is $(cat cid/artifacts/cidv1)"
 
