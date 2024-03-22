@@ -1,28 +1,49 @@
 use marine_rs_sdk::marine;
 
+// HTTP Header description
 #[marine]
 #[derive(Clone, Debug)]
-pub struct ListResult {
-    /// True when the binary executed successfully.
-    pub success: bool,
-    /// Error message if the binary execution failed.
-    pub error: String,
-    /// List of files in the provided directory.
-    pub result: Vec<String>,
+pub struct HttpHeader {
+    // Name of the header. For example: "Content-Type"
+    pub name: String,
+    // Value of the header. For example: "application/json"
+    pub value: String,
 }
 
-impl<E: ToString> From<Result<Vec<String>, E>> for ListResult {
-    fn from(res: Result<Vec<String>, E>) -> Self {
+// A generic cURL request
+#[marine]
+#[derive(Clone, Debug)]
+pub struct CurlRequest {
+    pub url: String,
+    pub headers: Vec<HttpHeader>,
+}
+
+// A generic cURL call result
+#[marine]
+#[derive(Clone, Debug)]
+pub struct CurlResult {
+    // True when cURL executed successfully.
+    // Note that it's also true on non-200 responses
+    pub success: bool,
+    pub error: String,
+}
+
+impl<A, E: ToString> From<Result<A, E>> for CurlResult {
+    fn from(res: Result<A, E>) -> Self {
+        res.err().into()
+    }
+}
+
+impl<E: ToString> From<Option<E>> for CurlResult {
+    fn from(res: Option<E>) -> Self {
         match res {
-            Ok(result) => ListResult {
+            None => CurlResult {
                 success: true,
-                error: "".to_string(),
-                result,
+                error: String::new(),
             },
-            Err(e) => ListResult {
+            Some(err) => CurlResult {
                 success: false,
-                error: e.to_string(),
-                result: vec![],
+                error: err.to_string(),
             },
         }
     }
