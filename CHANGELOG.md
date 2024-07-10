@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/fluencelabs/curl-effector/compare/effector-v0.1.1...effector-v0.1.2) (2024-07-10)
+
+
+### Features
+
+* relax for the demo ([#3](https://github.com/fluencelabs/curl-effector/issues/3)) ([5a74161](https://github.com/fluencelabs/curl-effector/commit/5a7416131bcb3ef2fff6b6038db1b9b909d0e947))
+
 ## [0.1.1](https://github.com/fluencelabs/curl-effector/compare/effector-v0.1.0...effector-v0.1.1) (2024-03-22)
 
 
