@@ -5,7 +5,7 @@ use url::Url;
 
 pub fn check_url(url: String) -> eyre::Result<String> {
     const ALLOW_SCHEMES: &[&str] = &["http", "https"];
-    const ALLOW_PORTS: &[u16] = &[443, 80, 8080];
+    const ALLOW_PORTS: &[u16] = &[443, 80, 8080, 7020];
 
     let url = Url::parse(&url).map_err(|e| eyre!("invalid url provided: {}", e))?;
 
